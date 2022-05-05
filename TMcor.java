@@ -14,7 +14,7 @@ public class TMcor {
 		int input=Obj.nextInt();
 		Obj.close();
 
-		System.setOut(new PrintStream(new FileOutputStream("test.csv")));
+		System.setOut(new PrintStream(new FileOutputStream("C:/Users/User/Desktop/Maths/FYP/csv/test.csv")));
 		for(int j=0;j<1+input;j++)
 		{		String outstring="";
 		
