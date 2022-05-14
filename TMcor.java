@@ -2,7 +2,6 @@
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.math.BigInteger;
 
 	
 public class TMcor {
@@ -11,23 +10,31 @@ public class TMcor {
 		
 		Scanner Obj = new Scanner(System.in);
 		System.out.println("How large of an art do you want to create?");
-		int input=Obj.nextInt();
+		int z=Obj.nextInt()-1;
 		Obj.close();
 
-		System.setOut(new PrintStream(new FileOutputStream("C:/Users/User/Desktop/Maths/FYP/csv/test.csv")));
-		for(int j=0;j<1+input;j++)
+
+
+
+		String path="C:/Users/User/Desktop/Maths/FYP/csv/test.csv";
+
+		System.setOut(new PrintStream(new FileOutputStream(path)));
+
+		for(int x=0;x<1+z;x++)
 		{		String outstring="";
 		
-			for(int k=0;k<1+input;k++)
+			for(int y=0;y<1+z;y++)
 		{	
 			int[] loopinput= new int[4];
 			loopinput[0]=1;
-			loopinput[1]=j;
-			loopinput[2]=k;
-			loopinput[3]=input;
+			loopinput[1]=x;
+			loopinput[2]=y;
+			loopinput[3]=z;
 			
+
+
 			int[][][] output=tree(loopinput);
-			int lastlevel=1+(int) Math.ceil(Math.log ((double) input)/Math.log(2));
+			int lastlevel=1+(int) Math.ceil(Math.log ((double) z)/Math.log(2));
 			int oneplus=0;
 			int oneminus=0;
 			int zeroplus=0;
@@ -59,7 +66,12 @@ public class TMcor {
 			
 		} System.out.println(outstring);
 		}
-			
+			/*
+			Scanner Ask = new Scanner(System.in);
+			System.out.println("How large of an art do you want to create?");
+			int answer=Ask.nextInt();
+			Ask.close();
+			*/	
 		}
 		
 		
@@ -157,6 +169,8 @@ placeholder[0][1]=placeholder[0][0];
 		
 		return x;
 	}
-	}
 	
 
+	
+
+}
