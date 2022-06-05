@@ -1,0 +1,25 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Java program for final year project
+message: Please cite this software using these metadata.
+type: software
+authors:
+  - given-names: Darren
+    family-names: Ong
+    orcid: 'https://orcid.org/0000-0003-4942-4376'
+    email: darrenong@xmu.edu.my
+    affiliation: Xiamen University Malaysia
+  - given-names: Jia Jun
+    family-names: Loh
+    email: layajnamij@gmail.com
+    affiliation: Xiamen University Malaysia
+repository-code: 'https://github.com/LAyaJnamiJ/fyp-java'
+abstract: >-
+  Java program used to calculate the autocorrelation
+  coefficients of the autocorrelation of four
+  Thue-Morse sequences, and also assigns colours to
+  the coefficient matrices that generate from it.
+keywords:
+  - Art from math
