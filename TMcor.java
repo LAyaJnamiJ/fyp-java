@@ -2,9 +2,17 @@
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.net.*;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import org.json.*;
+	
+
+
+public class TMcor {
 
 	
-public class TMcor {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
@@ -12,9 +20,6 @@ public class TMcor {
 		System.out.println("How large of an art do you want to create?");
 		int z=Obj.nextInt()-1;
 		Obj.close();
-
-
-
 
 		String path="C:/Users/User/Desktop/Maths/FYP/csv/test.csv";
 
@@ -31,6 +36,16 @@ public class TMcor {
 			loopinput[2]=y;
 			loopinput[3]=z;
 			
+			HttpClient client = HttpClient.newHttpClient();
+        	String url = "http://localhost:1337/api/coefficients";
+        	String query = "filters[x][$eq]=%d&filters[y][$eq]=%d&filters[z][$eq]=%d";
+        	String format = String.format(query, x, y, z);
+        	HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url + "?" + format)).build();
+
+			client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+            	.thenApply(HttpResponse::body)
+				.thenApply(TMcor::parse)
+				.join();
 
 
 			int[][][] output=tree(loopinput);
@@ -62,16 +77,13 @@ public class TMcor {
 			outstring=outstring+""+ answernum+"/"+answerdenum+",";
 			*/
 			double answer=(zerocalc*1.0-onecalc*(1.0/3))/Math.pow(2,lastlevel-1);
+
 			outstring=outstring+""+ answer+",";
 			
 		} System.out.println(outstring);
+
 		}
-			/*
-			Scanner Ask = new Scanner(System.in);
-			System.out.println("How large of an art do you want to create?");
-			int answer=Ask.nextInt();
-			Ask.close();
-			*/	
+			
 		}
 		
 		
@@ -170,7 +182,23 @@ placeholder[0][1]=placeholder[0][0];
 		return x;
 	}
 	
-
-	
-
+	public static String parse(String responseBody) {
+        JSONObject coefficients = new JSONObject(responseBody);
+        JSONArray data = coefficients.getJSONArray("data");
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject convert = data.getJSONObject(i);
+            JSONObject attribute = convert.getJSONObject("attributes");
+            Float value = attribute.getFloat("value");
+            int x = attribute.getInt("x");
+            int y = attribute.getInt("y");
+            int z = attribute.getInt("z");
+            System.out.println(x+","+y+","+z+","+value);
+            if (value != null) {
+                System.out.println(value+",");
+            } 
+        
+            
+        }
+        return null;
+    }
 }
