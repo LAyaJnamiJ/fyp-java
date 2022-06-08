@@ -15,14 +15,14 @@
             "name": "Launch TMart",
             "request": "launch",
             "mainClass": "TMart",
-            "projectName": "FYP"
+            "projectName": "FYP_f631db61"
         },
         {
             "type": "java",
             "name": "Launch TMcor",
             "request": "launch",
             "mainClass": "TMcor",
-            "projectName": "FYP"
+            "projectName": "FYP_f631db61"
         }
     ]
 }
