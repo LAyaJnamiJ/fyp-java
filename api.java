@@ -206,7 +206,7 @@ import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 public class api {
     public static void main(String[] args) throws Exception {
         NashornScriptEngineFactory factory = new NashornScriptEngineFactory();
-        ScriptEngine engine = factory.getScriptEngine("--language=es6");
+        ScriptEngine engine = factory.getScriptEngine("application/javascript");
 
         // evaluate JavaScript code
         engine.eval(new java.io.FileReader("script.js"));

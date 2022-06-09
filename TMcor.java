@@ -138,9 +138,9 @@ public class TMcor {
 }
 		
 	
-	public static int[][] recursion (int[] start) {
+public static int[][] recursion (int[] start) {
 		
-		int[][] placeholder= new int[4][2];
+int[][] placeholder= new int[4][2];
 placeholder[1][0]=(int) Math.floor(((float) start[1])/2);		
 placeholder[2][0]=(int) Math.floor(((float) start[2])/2);
 placeholder[3][0]=(int) Math.floor(((float) start[3])/2);	
@@ -180,23 +180,4 @@ placeholder[0][1]=placeholder[0][0];
 		return x;
 	}
 	
-	public static String parse(String responseBody) {
-        JSONObject coefficients = new JSONObject(responseBody);
-        JSONArray data = coefficients.getJSONArray("data");
-        for (int i = 0; i < data.length(); i++) {
-            JSONObject convert = data.getJSONObject(i);
-            JSONObject attribute = convert.getJSONObject("attributes");
-            Float value = attribute.getFloat("value");
-            int x = attribute.getInt("x");
-            int y = attribute.getInt("y");
-            int z = attribute.getInt("z");
-            System.out.println(x+","+y+","+z+","+value);
-            if (value != null) {
-                System.out.println(value+",");
-            } 
-        
-            
-        }
-        return null;
-    }
 }
