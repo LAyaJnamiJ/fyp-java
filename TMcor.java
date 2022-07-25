@@ -26,7 +26,7 @@ import org.apache.hc.core5.http.message.BasicNameValuePair;
 
 public class TMcor {
 
-	
+	//originally written by Dr. Darren Ong Chung Lee
 
 	public static void main(String[] args) throws Exception {
 		
@@ -50,6 +50,8 @@ public class TMcor {
 			loopinput[2]=y;
 			loopinput[3]=z;
 			
+			//added in by Loh Jia Jun	
+				
 			try (final CloseableHttpClient httpclient = HttpClients.createDefault()) {
 	
 				String url = "http://localhost:1337/api/coefficients";
@@ -92,6 +94,9 @@ public class TMcor {
 				
 
 				catch (Exception e) {
+					
+			//originally not part of a try-catch loop, written by Dr. Darren
+				
 			int[][][] output=tree(loopinput);
 			int lastlevel=1+(int) Math.ceil(Math.log ((double) z)/Math.log(2));
 			int oneplus=0;
@@ -111,6 +116,8 @@ public class TMcor {
 
 			outstring=outstring+""+ answer+",";
 			
+			//added by Loh Jia Jun in an attempt to implement the POST method of the API		
+					
 			/*final HttpPost httpPost = new HttpPost(url);
             final List<NameValuePair> nvps = new ArrayList<>();
             nvps.add(new BasicNameValuePair("x", "x"));
@@ -136,7 +143,8 @@ public class TMcor {
 	}
 			
 }
-		
+
+//originally written by Dr. Darren
 	
 public static int[][] recursion (int[] start) {
 		
