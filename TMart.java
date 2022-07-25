@@ -9,6 +9,8 @@ import java.io.*;
 /* Name of the class has to be "Main" only if the class is public. */
 public class TMart
 {
+	//written by Dr. Darren Ong Chung Lee; Loh Jia Jun only added few extra conditions and colors.
+	
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		
