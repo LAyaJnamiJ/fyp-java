@@ -7,7 +7,7 @@ Not much has been changed by the student apart from an additional block of code 
 
 Highlighting in given in the code as comments as to which parts of the code is whose.
 ## Using this project
-There is no official release; just download the two files (TMcor.java and TMart.java) and run them in an IDE of your choice that supports Java. 
+There is no official release; just download the two files ([TMcor.java](/TMcor.java) and [TMart.java](/TMart.java)) and run them in an IDE of your choice that supports Java. 
 
 To use the API-related functionalities, a dependency on the [JSON-Java package](https://github.com/stleary/JSON-java) is required.
 ## Credits
